@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="03ed90809ea34745bc3c25c9acb9b1f8" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="POSDBModel.Customer" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSDBModel.Employee" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSDBModel.Order" Width="1.5" PointX="5.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSDBModel.Product" Width="1.5" PointX="3" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="POSDBModel.User" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <AssociationConnector Association="POSDBModel.FK__Customers__User___3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="POSDBModel.FK__Orders__Customer__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="POSDBModel.FK__Employees__User___2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="POSDBModel.FK__Orders__Id__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="POSDBModel.FK__Orders__User_Id__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="POSDBModel.FK__Products__User_I__3D5E1FD2" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="POSDBModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

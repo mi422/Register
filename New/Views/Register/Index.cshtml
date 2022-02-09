@@ -1,0 +1,84 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" type="image/png" href="~/Imag/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Css/StyleSheet.css" rel="stylesheet" />
+    <title>Registration</title>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div>
+                <h1>Registration</h1>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="name" placeholder="Full Name">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="email" placeholder="Email Address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="phone" placeholder="Phone Number">
+                </div>
+                <input type="hidden" class="form-control" id="adminuserId" />
+                <input type="hidden" class="form-control" id="userId" />
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <input type="text" class="form-control" id="role" placeholder="Role">
+                </div>
+            </div>
+            <button class="btn btn-success btn-lg" type="submit" onclick="saveUser(); saveAdmin()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+
+        function saveUser()
+    {
+       var user = { Username: $("#username").val(), Password: $("#password").val(), Role: $("#role").val() };
+        $.ajax({
+            url: "/Register/SaveData",
+            method: "POST",
+            data: JSON.stringify(user),
+            contentType: "application/json; charset=utf-8",
+       });
+    }
+
+    function saveAdmin()
+    {
+       var admin = { Name: $("#name").val(), Email: $("#email").val(), Phone: $("#phone").val(), User_Id: $("#adminuserId").val() =  $("#userId").val()  };
+       $.ajax({
+            url: "/Register/NewAdmin",
+            method: "POST",
+            data: JSON.stringify(admin),
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                 if(data.success)
+              {
+                window.location.href = "http://localhost:50170/Register/Index";
+              }
+           }
+       });
+    }
+</script>
+
